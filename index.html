@@ -34,7 +34,9 @@
                 <p>Entries</p>
               </div>
               <div class="col-12">
-                <p>Add a Jot</p>
+                <div class="d-flex justify-content-start align-items-center">
+                  <p>Add a Jot</p>
+                </div>
               </div>
               <div class="col-2">
                 <div class=" d-flex align-items-center">
@@ -43,7 +45,7 @@
               </div>
               <div class="col-7">
                 <div>
-                  <input type="text" class="form-control rounded-5">
+                  <input type="text" class="form-control bg-purpdark rounded-5">
                 </div>
               </div>
               <div class="col-3">
@@ -52,10 +54,12 @@
                 </div>
               </div>
               <div class="col-12">
-                <div class="d-flex justify-content-start p-2">
-                  <li>blah</li>
-                  <li>blah</li>
-                  <li>blah</li>
+                <div class="card">
+                  <div class="card-header">
+                    <div>Text Name 1</div>
+                    <div>Date Created</div>
+                  </div>
+                  <div class="card-body">Text body field 1</div>
                 </div>
               </div>
             </div>
@@ -64,22 +68,40 @@
         <section class="col-8">
           <div class="container-fluid dark-box">
             <div class="row">
-              <div class="col-2">
+              <div class="col-1">
                 <p>color icon</p>
               </div>
-              <div class="col-6">
-                <h1>Note Example header</h1>
-                <p>created date</p>
-                <p>last updated date/time</p>
+              <div class="col-7">
+                <div class="d-flex flex-column align-items-start">
+                  <div class="fs-2 fw-bold text-decoration-underline">
+                    Text File name
+                  </div>
+                  <div>
+                    Created on: (date)
+                  </div>
+                  <div>
+                    last updated: (long date)
+                  </div>
+                </div>
               </div>
               <div class="col-4">
-                <button class="btn btn-primary mdi mdi-content-save-plus me-2">Save</button><button
-                  class="btn btn-outline-danger mdi mdi-delete">Delete</button>
+                <div class="d-flex justify-content-end align-items-end">
+                  <button class="btn btn-primary mdi mdi-content-save-plus me-2">Save</button><button
+                    class="btn btn-outline-danger mdi mdi-delete">Delete</button>
+                </div>
               </div>
+            </div>
+            <div class="row my-4 ">
+              <div class="col-12">
+                <textarea name="" id="" class=" mb-4 bg-purpdark rounded-5 p-5" rows="20" cols="110"></textarea>
+              </div>
+              <p class="d-flex justify-content-end">word count</p>
             </div>
           </div>
         </section>
       </div>
+    </section>
+    </div>
     </section>
 
   </main>
