@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
+  <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
+    defer></script>
   <title>jot</title>
 </head>
 
-<body data-bs-theme="light">
+<body class="debug" data-bs-theme="light">
   <!-- SECTION -->
   <header>
     <div class="container">
@@ -25,35 +27,57 @@
   <main>
     <section class="container-fluid text-light">
       <div class="row justify-content-around text-center">
-        <section class="col-4 dark-box ">
-          <div class="container-fluid">
-            <div class="row my-3 justify-content-center">
+        <section class="col-4">
+          <div class="container-fluid dark-box">
+            <div class="row justify-content-center">
               <div class="col-12 d-flex justify-content-end ">
                 <p>Entries</p>
               </div>
               <div class="col-12">
                 <p>Add a Jot</p>
               </div>
-              <div class="col-2 d-flex align-items-center">
-                <i class="mdi mdi-circle fs-3"></i>
+              <div class="col-2">
+                <div class=" d-flex align-items-center">
+                  <i class="mdi mdi-circle fs-3"></i>
+                </div>
               </div>
-              <div class="col-7 m-0">
-                <input type="text" class="form-control rounded-5">
+              <div class="col-7">
+                <div>
+                  <input type="text" class="form-control rounded-5">
+                </div>
               </div>
-              <div class="col-3 d-flex justify-content-end">
-                <button type="button" class="rounded-4 fs-6 btn-primary">Create +</button>
+              <div class="col-3">
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="rounded-4 fs-6 btn-primary">Create +</button>
+                </div>
               </div>
-              <div class="col-12 d-flex justify-content-start p-2">
-                <li>blah</li>
-                <li>blah</li>
-                <li>blah</li>
+              <div class="col-12">
+                <div class="d-flex justify-content-start p-2">
+                  <li>blah</li>
+                  <li>blah</li>
+                  <li>blah</li>
+                </div>
               </div>
-
             </div>
           </div>
         </section>
-        <section class="col-7 dark-box ">
-          <div>TEXT FIELD</div>
+        <section class="col-8">
+          <div class="container-fluid dark-box">
+            <div class="row">
+              <div class="col-2">
+                <p>color icon</p>
+              </div>
+              <div class="col-6">
+                <h1>Note Example header</h1>
+                <p>created date</p>
+                <p>last updated date/time</p>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary mdi mdi-content-save-plus me-2">Save</button><button
+                  class="btn btn-outline-danger mdi mdi-delete">Delete</button>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </section>
