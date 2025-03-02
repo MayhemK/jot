@@ -27,3 +27,9 @@ main {
 .bg-purpdark {
   background-color: #37335f;
 }
+
+.text-box {
+  width: 100%;
+  min-height: 40dvh;
+  max-height: 90dvh;
+}

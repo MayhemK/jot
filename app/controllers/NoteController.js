@@ -6,6 +6,7 @@ export class NoteController {
   constructor() {
     console.log('note controller loaded');
     this.drawNoteFiles()
+    this.drawNoteCount()
     console.log('help');
 
   }
@@ -16,5 +17,13 @@ export class NoteController {
     const noteFilesListElem = document.getElementById('noteCard')
     noteFilesListElem.innerHTML = noteFilesContent
 
+  }
+
+  drawNoteCount() {
+    const noteFiles = AppState.notesFiles
+    const noteCountElem = document.getElementById('noteCount')
+    noteCountElem.setAttribute('title', `${noteFiles.length} reports`)
+    const boldElem = noteCountElem.querySelector('b')
+    boldElem.innerText = noteFiles.length.toString()
   }
 }

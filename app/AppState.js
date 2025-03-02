@@ -19,7 +19,7 @@ class ObservableAppState extends EventEmitter {
       title: 'Test note 3',
       content: ',mzxnv,.zmxncv.z,xmncv.znascdvfgh'
 
-    })
+    }),
   ]
 
 
