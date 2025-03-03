@@ -22,7 +22,7 @@ class ObservableAppState extends EventEmitter {
     }),
   ]
 
-  /**@type {NoteFile} */
+  /**@type {Notes} */
   activeNoteFile = null
 
 

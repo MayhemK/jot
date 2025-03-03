@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { Notes } from "../models/Notes.js";
 import { noteFileService } from "../services/NoteService.js";
 import { getFormData } from "../utils/FormHandler.js"
 
@@ -11,8 +12,7 @@ export class NoteController {
     AppState.on('activeNoteFile', this.drawActiveNoteFile)
     this.drawNoteFiles()
     this.drawNoteCount()
-    // console.log('data from form', rawNoteData);
-    // noteFileService.createNoteFile(rawNoteFile)
+
 
   }
   drawNoteFiles() {
@@ -34,18 +34,19 @@ export class NoteController {
   drawActiveNoteFile() {
     const noteFile = AppState.activeNoteFile
     const activeNoteFileElem = document.getElementById('activeNote')
-    activeNoteFileElem.innerText = noteFile.title
+    activeNoteFileElem.innerHTML = noteFile.activeHTMLTemplate
   }
 
   createNote() {
     event.preventDefault()
     const formElem = event.target
     const rawNoteData = getFormData(formElem)
-    console.log(rawNoteData);
     const colorInput = document.getElementById('favcolor');
     // @ts-ignore
     const colorValue = colorInput.value;
     console.log('selected color:', colorValue);
+    console.log(rawNoteData);
+    noteFileService.createNoteFile(rawNoteData)
   }
 
   selectActiveNote(noteFileId) {
