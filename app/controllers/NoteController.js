@@ -53,4 +53,20 @@ export class NoteController {
     console.log('select active note with the id of' + noteFileId);
     noteFileService.setActiveNote(noteFileId)
   }
+  editNoteFile() {
+    console.log('activating note!', AppState.activeNoteFile);
+    noteFileService.editActiveNoteFile()
+
+  }
+
+  saveNote() {
+    event.preventDefault();
+    console.log('savingNOTE!');
+    const formElem = event.target;
+    const contentFromTextArea = formElem.content.value;
+    noteFileService.updateNote(contentFromTextArea);
+    console.log('saved');
+
+
+  }
 }

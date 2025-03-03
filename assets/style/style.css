@@ -44,6 +44,10 @@ textarea {
   align-items: end;
 }
 
+.big {
+  font-size: 3.5rem;
+}
+
 .dark-box {
   background-color: #282546;
 }
