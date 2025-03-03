@@ -63,12 +63,25 @@ export class NoteController {
 
   saveNote() {
     event.preventDefault();
-    console.log('savingNOTE!');
     const formElem = event.target;
+    // @ts-ignore
     const contentFromTextArea = formElem.content.value;
-    noteFileService.updateNote(contentFromTextArea);
+    noteFileService.updateNote(contentFromTextArea.value);
+    noteFileService.saveNoteFiles();
     console.log('saved');
+  }
 
+  deleteNote() {
+    const confirmation = confirm("Are you sure you want to delete this note?");
+    if (confirmation) {
+      const noteFiles = AppState.noteFiles;
+      const noteFileIndex = noteFiles.findIndex(noteFiles => noteFiles.id == AppState.activeNoteFile.id);
+      noteFiles.splice(noteFileIndex, 1);
+
+      AppState.activeNoteFile = null;
+    } else {
+      console.log("Deletion cancelled");
+    }
 
   }
 }

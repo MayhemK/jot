@@ -18,8 +18,8 @@ export class Notes {
   get createdDate() {
     return this.createdAt.toLocaleDateString()
   }
-  get lastEditedAt() {
-    return this.lastEdited.toLocaleDateString('en-US', { hour12: false })
+  get lastEditedTime() {
+    return this.lastEdited.toLocaleString('en-US', { hour12: false })
   }
 
 
@@ -64,15 +64,14 @@ export class Notes {
                     Created on: ${this.createdDate}
                   </div>
                   <div>
-                    last updated: ${this.lastEdited}
+                    last updated: ${this.lastEditedTime}
                   </div>
                 </div>
               </div>
               <div class="col-4">
                 <div class="d-flex justify-content-end align-items-end">
                   <button type="submit" form="noteForm" class="btn btn-primary mdi mdi-content-save-plus me-2">Save</button>
-                  <button
-                    class="btn btn-outline-danger mdi mdi-delete">Delete</button>
+                  <button onclick="app.noteController.deleteNote()" class="btn btn-outline-danger mdi mdi-delete">Delete</button>
                 </div>
               </div>
             </div>

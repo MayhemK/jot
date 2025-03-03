@@ -6,8 +6,11 @@ class NoteFileService {
   updateNote(updatedContent) {
     const noteFile = AppState.activeNoteFile
     noteFile.content = updatedContent
+    // @ts-ignore
+    noteFile.lastEditedAt = new Date()
     AppState.emit('activeNoteFile')
   }
+
 
 
   createNoteFile(rawNoteFile) {
@@ -20,6 +23,11 @@ class NoteFileService {
 
   saveNoteFiles() {
     saveState('noteFiles', AppState.noteFiles)
+    const noteFile = AppState.activeNoteFile
+    // @ts-ignore
+    noteFile.lastEdited = new Date()
+
+    AppState.emit('activeNoteFile')
   }
   loadNoteFiles() {
     const noteFiles = loadState('noteFiles', [Notes])
@@ -29,12 +37,13 @@ class NoteFileService {
   setActiveNote(noteFileId) {
     const noteFiles = AppState.noteFiles
     const foundNoteFile = noteFiles.find(noteFile => noteFile.id == noteFileId)
-    console.log('found a note file', foundNoteFile);
+    // console.log('found a note file', foundNoteFile);
     AppState.activeNoteFile = foundNoteFile
 
   }
   editActiveNoteFile() {
     const noteFile = AppState.activeNoteFile
+    // @ts-ignore
     noteFile.lastEditedAt = new Date()
     AppState.emit('activeNoteFile')
   }
