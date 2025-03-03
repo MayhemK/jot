@@ -18,8 +18,10 @@ export class Notes {
         <div class="d-flex justify-content-between card-header">
           <div class="fw-bold">${this.title}</div>
           <div>Date Created</div>
+          </div>
+          <div class="card-body text-start">${this.content}
+          </div>
         </div>
-        <div class="card-body text-start">${this.content}</div>
       </div>
     `
   }

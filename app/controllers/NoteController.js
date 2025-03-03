@@ -32,18 +32,7 @@ export class NoteController {
     boldElem.innerText = noteFiles.length.toString()
   }
 
-  // createNote() {
-  //   event.preventDefault()
-  //   console.log('creating Note!');
-  //   const colorInput = document.getElementById('favcolor');
-  //   // @ts-ignore
-  //   const colorValue = colorInput.value;
-  //   console.log('selected color:', colorValue);
-  //   const formElem = event.target
-  //   const rawNoteData = getFormData(formElem)
-  //   console.log((rawNoteData));
 
-  // }
 
   createNote() {
     event.preventDefault()

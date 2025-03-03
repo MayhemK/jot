@@ -8,17 +8,17 @@ class ObservableAppState extends EventEmitter {
     new Notes({
       title: 'Test note 1',
       content: 'alskjdf;laksjdfl;kjasdf',
-      color: '#54f399'
+      color: '54f399'
     }),
     new Notes({
       title: 'Test note 2',
       content: 'qoiwueropqiwuerpoqwuier',
-      color: '#00ff00'
+      color: '00ff00'
     }),
     new Notes({
       title: 'Test note 3',
       content: ',mzxnv,.zmxncv.z,xmncv.znascdvfgh',
-      color: '#ffffff'
+      color: 'ffffff'
     }),
   ]
 
