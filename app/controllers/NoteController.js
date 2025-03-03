@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { getFormData } from "../utils/FormHandler.js"
 
 
 
@@ -25,5 +26,18 @@ export class NoteController {
     noteCountElem.setAttribute('title', `${noteFiles.length} reports`)
     const boldElem = noteCountElem.querySelector('b')
     boldElem.innerText = noteFiles.length.toString()
+  }
+
+  createNote() {
+    event.preventDefault()
+    console.log('creating Note!');
+    const colorInput = document.getElementById('favcolor');
+    // @ts-ignore
+    const colorValue = colorInput.value;
+    console.log('selected color:', colorValue);
+    const formElem = event.target
+    const rawNoteData = getFormData(formElem)
+    console.log((rawNoteData));
+
   }
 }

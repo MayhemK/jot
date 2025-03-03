@@ -2,11 +2,12 @@ import { generateId } from "../utils/GenerateId.js";
 
 
 export class Notes {
-  /**@param {{ title: string; content: string}} data*/
+  /**@param {{ title: string; content: string, color: string}} data*/
   constructor(data) {
     this.title = data.title
     this.content = data.content
     this.id = generateId()
+    this.color = data.color
     // this.createdAt() = new Date()
     // this.lastEdited() = new Date()
   }
