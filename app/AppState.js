@@ -4,7 +4,7 @@ import { createObservableProxy } from './utils/ObservableProxy.js'
 
 class ObservableAppState extends EventEmitter {
 
-  notesFiles = [
+  noteFiles = [
     new Notes({
       title: 'Test note 1',
       content: 'alskjdf;laksjdfl;kjasdf',
@@ -21,6 +21,9 @@ class ObservableAppState extends EventEmitter {
       color: 'ffffff'
     }),
   ]
+
+  /**@type {NoteFile} */
+  activeNoteFile = null
 
 
 }

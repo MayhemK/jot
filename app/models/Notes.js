@@ -8,19 +8,20 @@ export class Notes {
     this.content = data.content
     this.id = generateId()
     this.color = data.color
-    // this.createdAt() = new Date()
-    // this.lastEdited() = new Date()
+    this.createdAt = new Date()
+    this.lastEdited = new Date()
   }
 
   get listHTMLTemplate() {
     return `
-      <div class="card bg-purpdark text-light mb-2" role="button">
+      <div onclick="app.noteController.selectActiveNote('${this.id}')" class="card bg-purpdark text-light mb-2" role="button">
         <div class="d-flex justify-content-between card-header">
           <div class="fw-bold">${this.title}</div>
-          <div>Date Created</div>
+          <div>${this.createdAt}</div>
           </div>
           <div class="card-body text-start">${this.content}
           </div>
+          <div>${this.id}</div>
         </div>
       </div>
     `
