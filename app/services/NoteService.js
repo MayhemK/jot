@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Notes } from "../models/Notes.js";
+import { loadState, saveState } from "../utils/Store.js";
 
 class NoteFileService {
   updateNote(updatedContent) {
@@ -13,8 +14,18 @@ class NoteFileService {
     const noteFiles = AppState.noteFiles
     const newNoteFile = new Notes(rawNoteFile)
     noteFiles.push(newNoteFile)
+    this.saveNoteFiles()
 
   }
+
+  saveNoteFiles() {
+    saveState('noteFiles', AppState.noteFiles)
+  }
+  loadNoteFiles() {
+    const noteFiles = loadState('noteFiles', [Notes])
+    AppState.noteFiles = noteFiles
+  }
+
   setActiveNote(noteFileId) {
     const noteFiles = AppState.noteFiles
     const foundNoteFile = noteFiles.find(noteFile => noteFile.id == noteFileId)
@@ -27,6 +38,7 @@ class NoteFileService {
     noteFile.lastEditedAt = new Date()
     AppState.emit('activeNoteFile')
   }
+
 
 }
 

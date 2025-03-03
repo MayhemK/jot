@@ -5,11 +5,13 @@ import { getFormData } from "../utils/FormHandler.js"
 
 
 
+
 export class NoteController {
   constructor() {
     AppState.on('noteFiles', this.drawNoteFiles);
     AppState.on('noteFiles', this.drawNoteCount);
     AppState.on('activeNoteFile', this.drawActiveNoteFile)
+    noteFileService.loadNoteFiles()
     this.drawNoteFiles()
     this.drawNoteCount()
 
