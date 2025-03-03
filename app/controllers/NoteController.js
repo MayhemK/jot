@@ -32,11 +32,17 @@ export class NoteController {
     const boldElem = noteCountElem.querySelector('b')
     boldElem.innerText = noteFiles.length.toString()
   }
-
+  // FIXME add functionality, draw after delete, confirm the state is being saved after the delete
   drawActiveNoteFile() {
     const noteFile = AppState.activeNoteFile
     const activeNoteFileElem = document.getElementById('activeNote')
+    if (noteFile == null) {
+      activeNoteFileElem.innerHTML = '<h1>Select Note to Edit!</h1>'
+      return
+    }
     activeNoteFileElem.innerHTML = noteFile.activeHTMLTemplate
+    console.log(noteFile);
+
   }
 
   createNote() {
@@ -61,28 +67,37 @@ export class NoteController {
     noteFileService.editActiveNoteFile()
 
   }
-
+  // FIXME add console log, log the text the user has typed in. add log in service to log the same text. change active note content with new note
   saveNote() {
     event.preventDefault();
     const formElem = event.target;
     // @ts-ignore
     const contentFromTextArea = formElem.content.value;
-    noteFileService.updateNote(contentFromTextArea.value);
+    noteFileService.updateNote(contentFromTextArea);
     noteFileService.saveNoteFiles();
-    console.log('saved');
+    console.log('saved', contentFromTextArea);
   }
 
   deleteNote() {
-    const confirmation = confirm("Are you sure you want to delete this note?");
-    if (confirmation) {
-      const noteFiles = AppState.noteFiles;
-      const noteFileIndex = noteFiles.findIndex(noteFiles => noteFiles.id == AppState.activeNoteFile.id);
-      noteFiles.splice(noteFileIndex, 1);
-
-      AppState.activeNoteFile = null;
-    } else {
-      console.log("Deletion cancelled");
+    const confirmed = window.confirm("Are you sure you want to delete ${AppState.activeNoteFile.title}?");
+    if (!confirmed) {
+      return
     }
-
+    noteFileService.deleteActiveNote();
   }
+
+  //   deleteNote() {
+  //     const confirmation = confirm("Are you sure you want to delete this note?");
+  //     if (confirmation) {
+  //       const noteFiles = AppState.noteFiles;
+  //       const noteFileIndex = noteFiles.findIndex(noteFiles => noteFiles.id == AppState.activeNoteFile.id);
+  //       noteFiles.splice(noteFileIndex, 1);
+
+  //       AppState.activeNoteFile = null;
+  //     } else {
+  //       console.log("Deletion cancelled");
+  //     }
+
+  //   }
+  // }
 }

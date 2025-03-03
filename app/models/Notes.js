@@ -51,7 +51,7 @@ export class Notes {
     <div class="container-fluid dark-box">
             <div class="row">
               <div class="col-1">
-                <div style="color: #${this.color}" class="big">
+                <div style="color: ${this.color}" class="big">
                   <i class="mdi mdi-bookmark"></i>
                 </div>
               </div>

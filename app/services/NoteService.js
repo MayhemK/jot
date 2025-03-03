@@ -3,12 +3,23 @@ import { Notes } from "../models/Notes.js";
 import { loadState, saveState } from "../utils/Store.js";
 
 class NoteFileService {
+  deleteActiveNote() {
+    const noteFiles = AppState.noteFiles
+    const noteFileIndex = noteFiles.findIndex(noteFile => noteFile.id == AppState.activeNoteFile.id)
+    noteFiles.splice(noteFileIndex, 1)
+    AppState.activeNoteFile = null
+    this.saveNoteFiles()
+  }
   updateNote(updatedContent) {
     const noteFile = AppState.activeNoteFile
     noteFile.content = updatedContent
+    console.log('updated content', updatedContent);
+
     // @ts-ignore
     noteFile.lastEditedAt = new Date()
     AppState.emit('activeNoteFile')
+    console.log('activeNoteFile');
+
   }
 
 
