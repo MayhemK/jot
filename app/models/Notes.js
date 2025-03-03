@@ -27,7 +27,7 @@ export class Notes {
   get listHTMLTemplate() {
     return `
       <div onclick="app.noteController.selectActiveNote('${this.id}')" class="card bg-purpdark text-light mb-2" role="button">
-        <div class="d-flex justify-content-between card-header">
+        <div class="d-flex justify-content-between card-header" style="box-shadow: 0px 0px 6px 3px ${this.color}">
           <div class="fw-bold ">${this.title}</div>
           <div>${this.createdDate}</div>
           </div>
