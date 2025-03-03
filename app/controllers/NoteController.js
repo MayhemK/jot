@@ -79,6 +79,7 @@ export class NoteController {
     noteFileService.updateNote(contentFromTextArea);
     noteFileService.saveNoteFiles();
     console.log('saved', contentFromTextArea);
+    this.drawNoteFiles()
   }
 
   deleteNote() {
