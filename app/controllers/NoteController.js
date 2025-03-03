@@ -8,7 +8,7 @@ export class NoteController {
   constructor() {
     AppState.on('noteFiles', this.drawNoteFiles);
     AppState.on('noteFiles', this.drawNoteCount);
-
+    AppState.on('activeNoteFile', this.drawActiveNoteFile)
     this.drawNoteFiles()
     this.drawNoteCount()
     // console.log('data from form', rawNoteData);
@@ -29,6 +29,12 @@ export class NoteController {
     noteCountElem.setAttribute('title', `${noteFiles.length} reports`)
     const boldElem = noteCountElem.querySelector('b')
     boldElem.innerText = noteFiles.length.toString()
+  }
+
+  drawActiveNoteFile() {
+    const noteFile = AppState.activeNoteFile
+    const activeNoteFileElem = document.getElementById('activeNote')
+    activeNoteFileElem.innerText = noteFile.title
   }
 
   createNote() {
