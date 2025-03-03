@@ -37,7 +37,7 @@ export class NoteController {
     const noteFile = AppState.activeNoteFile
     const activeNoteFileElem = document.getElementById('activeNote')
     if (noteFile == null) {
-      activeNoteFileElem.innerHTML = '<h1>Select Note to Edit!</h1>'
+      activeNoteFileElem.innerHTML = ' <img src="https://static.vecteezy.com/system/resources/previews/009/384/616/large_2x/notebook-clipart-design-illustration-free-png.png" alt="asdf">'
       return
     }
     activeNoteFileElem.innerHTML = noteFile.activeHTMLTemplate
@@ -55,7 +55,10 @@ export class NoteController {
     rawNoteData.color = colorValue;
     console.log('selected color:', colorValue);
     console.log(rawNoteData);
-    noteFileService.createNoteFile(rawNoteData)
+    noteFileService.createNoteFile(rawNoteData);
+    const newNote = AppState.noteFiles[AppState.noteFiles.length - 1];
+    this.selectActiveNote(newNote.id)
+
   }
 
   selectActiveNote(noteFileId) {

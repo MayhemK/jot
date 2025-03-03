@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { NoteController } from "../controllers/NoteController.js";
 import { Notes } from "../models/Notes.js";
 import { loadState, saveState } from "../utils/Store.js";
 
@@ -30,13 +31,16 @@ class NoteFileService {
     noteFiles.push(newNoteFile)
     this.saveNoteFiles()
 
+
   }
 
   saveNoteFiles() {
     saveState('noteFiles', AppState.noteFiles)
     const noteFile = AppState.activeNoteFile
     // @ts-ignore
-    noteFile.lastEdited = new Date()
+    if (noteFile) {
+      noteFile.lastEdited = new Date()
+    }
 
     AppState.emit('activeNoteFile')
   }
