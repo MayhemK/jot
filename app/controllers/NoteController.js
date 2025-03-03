@@ -46,6 +46,7 @@ export class NoteController {
     const colorInput = document.getElementById('favcolor');
     // @ts-ignore
     const colorValue = colorInput.value;
+    rawNoteData.color = colorValue;
     console.log('selected color:', colorValue);
     console.log(rawNoteData);
     noteFileService.createNoteFile(rawNoteData)
