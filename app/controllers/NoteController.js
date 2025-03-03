@@ -1,14 +1,18 @@
 import { AppState } from "../AppState.js";
+import { noteFileService } from "../services/NoteService.js"
 import { getFormData } from "../utils/FormHandler.js"
 
 
 
 export class NoteController {
   constructor() {
+    // AppState.on('noteFiles', this.drawNoteFiles)
+    // AppState.on('noteFiles', this.drawNoteCount)
     console.log('note controller loaded');
     this.drawNoteFiles()
     this.drawNoteCount()
-    console.log('help');
+    // console.log('data from form', rawNoteFile);
+    // noteFileService.createNoteFile(rawNoteFile)
 
   }
   drawNoteFiles() {
@@ -28,16 +32,27 @@ export class NoteController {
     boldElem.innerText = noteFiles.length.toString()
   }
 
+  // createNote() {
+  //   event.preventDefault()
+  //   console.log('creating Note!');
+  //   const colorInput = document.getElementById('favcolor');
+  //   // @ts-ignore
+  //   const colorValue = colorInput.value;
+  //   console.log('selected color:', colorValue);
+  //   const formElem = event.target
+  //   const rawNoteData = getFormData(formElem)
+  //   console.log((rawNoteData));
+
+  // }
+
   createNote() {
     event.preventDefault()
-    console.log('creating Note!');
-    const colorInput = document.getElementById('favcolor');
-    // @ts-ignore
-    const colorValue = colorInput.value;
-    console.log('selected color:', colorValue);
     const formElem = event.target
     const rawNoteData = getFormData(formElem)
-    console.log((rawNoteData));
+    console.log(rawNoteData);
+    const colorInput = document.getElementById('favcolor');
+    const colorValue = colorInput.value;
+    console.log('selected color:', colorValue);
 
   }
 }
